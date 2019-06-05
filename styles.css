@@ -156,6 +156,11 @@ body {
   display: inline-block;
 }
 
+.content>.containers>.item>.name {
+  margin-left: 40px;
+  width: 20%;
+}
+
 .content>.containers>.item>.actions>.button {
   display: inline-block;
 }
