@@ -98,12 +98,12 @@ body {
   bottom: 0;
   background: rgb(250, 250, 250);
   visibility: visible;
-  opacity:1;
+  opacity: 1;
 }
 
 .content.hidden {
   visibility: hidden;
-  opacity:0;
+  opacity: 0;
 }
 
 .content>.headline {
@@ -115,10 +115,10 @@ body {
 }
 
 .content>.headline>.updated {
-  position:absolute;
-  top:35px;
-  right:35px;
-  opacity:.5;
+  position: absolute;
+  top: 35px;
+  right: 35px;
+  opacity: .5;
 }
 
 .content>.headline>.name {
@@ -136,4 +136,22 @@ body {
   display: inline-block;
   margin-right: 15px;
   opacity: .5;
+}
+
+.content>.containers {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.content>.containers>.item {
+  display: block;
+  height: 50px;
+  border-top: 1px solid #00000021;
+}
+
+.content>.containers>.item>div {
+  display: inline-block;
 }
