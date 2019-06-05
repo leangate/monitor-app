@@ -17,7 +17,7 @@
       <div class="name" id="nodeName">leangate-node-1</div>
       <div class="info">
         <div class="block os" id="osName">Debian GNU/Linux 9</div>
-        <div class="block cpuModel" id="cpuMode">Intel® Core™ i7-6700HQ</div>
+        <div class="block cpuModel" id="cpuModel">Intel® Core™ i7-6700HQ</div>
         <div class="block cpuCores" id="cpuCores">2 Cores x 2.60Hz</div>
         <div class="block uptime" id="nodeUptime">Uptime 20 minutes</div>
       </div>
@@ -178,6 +178,11 @@
           nodeUptime.innerHTML = `Uptime ${node["metrics"]["time"]["uptime"]} seconds`;
 
           // TODO: fill containers
+          for (const container of node["metrics"]["dockerContainers"]) {
+            const containerDOM = document.createElement("div");
+
+            containers.appendChild(containerDOM);
+          }
 
         }
       }
