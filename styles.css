@@ -125,12 +125,7 @@ body {
   margin-left: 40px;
 }
 
-.content>.headline>.info {
-  display: block;
-  margin-left: 40px;
-}
-
-.content>.headline>.block {
+.content>.headline>.info>.block {
   display: inline-block;
   margin-right: 15px;
   opacity: .5;
