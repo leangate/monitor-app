@@ -149,7 +149,11 @@ body {
 .content>.containers>.item {
   display: block;
   padding: 15px 0;
-  border-top: 1px solid #00000021;
+  border-bottom: 1px solid #00000021;
+}
+
+.content>.containers>.item.title {
+  opacity:.5;
 }
 
 .content>.containers>.item>div {
