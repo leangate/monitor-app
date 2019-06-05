@@ -97,7 +97,7 @@
         nodeDOM.classList.add("element");
         if (nodeNameValue === selectedNode) nodeDOM.classList.add("selected");
 
-        nodeDOM.on("click", () => {
+        nodeDOM.onclick((event) => {
           switchNode(nodeDOM, nodeNameValue);
         });
 
