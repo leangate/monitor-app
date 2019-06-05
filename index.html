@@ -13,13 +13,13 @@
   <div class="sidebar" id="sidebar"></div>
   <div class="content">
     <div class="headline" id="headline">
-      <div class="updated" id="dataUpdated">-</div>
-      <div class="name" id="nodeName">-</div>
+      <div class="updated" id="dataUpdated"></div>
+      <div class="name" id="nodeName"></div>
       <div class="info">
         <div class="block os" id="osName">-</div>
-        <div class="block cpuModel" id="cpuModel">-</div>
-        <div class="block cpuCores" id="cpuCores">-</div>
-        <div class="block uptime" id="nodeUptime">-</div>
+        <div class="block cpuModel" id="cpuModel"></div>
+        <div class="block cpuCores" id="cpuCores"></div>
+        <div class="block uptime" id="nodeUptime"></div>
       </div>
     </div>
     <div class="containers" id="containers">
@@ -179,6 +179,7 @@
           // TODO: fill containers
           for (const container of node["metrics"]["dockerContainers"]) {
             const containerDOM = document.createElement("div");
+            containerDOM.classList.add("item");
 
             const [appNameValue, appUseridValue] = container["name"].split(".");
 
