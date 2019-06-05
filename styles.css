@@ -173,3 +173,21 @@ body {
   border-radius: 7px;
   margin-right: 8px;
 }
+
+.content>.containers>.item>.actions>.button.green {
+  background: #00a50d;
+  border: 1px solid #02750b;
+  color: #fff;
+}
+
+.content>.containers>.item>.actions>.button.red {
+  background: #ff4141;
+  border: 1px solid #bf0000;
+  color: #fff;
+}
+
+.content>.containers>.item>.actions>.button.blue {
+  background: #007aff;
+  border: 1px solid #0062ce;
+  color: #fff;
+}
