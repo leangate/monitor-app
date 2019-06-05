@@ -22,40 +22,7 @@
         <div class="block uptime" id="nodeUptime"></div>
       </div>
     </div>
-    <div class="containers" id="containers">
-      <div class="item title">
-        <div class="name">Name</div>
-        <div class="user">User</div>
-        <div class="state">State</div>
-        <div class="actions">Actions</div>
-      </div>
-      <div class="item">
-        <div class="name">vlc</div>
-        <div class="user">20348710319470</div>
-        <div class="state green">running</div>
-        <div class="actions">
-          <div class="button red">Kill</div>
-          <div class="button blue">Migrate</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="name">firefox</div>
-        <div class="user">20348710319470</div>
-        <div class="state orange">stopped</div>
-        <div class="actions">
-          <div class="button green">Run</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="name">0332103482021</div>
-        <div class="user">20348710319470</div>
-        <div class="state green">running</div>
-        <div class="actions">
-          <div class="button red">Kill</div>
-          <div class="button blue">Migrate</div>
-        </div>
-      </div>
-    </div>
+    <div class="containers" id="containers"></div>
   </div>
 
   <script>
@@ -189,6 +156,11 @@
               appNameValue = "system";
             }
 
+            let containerStateValue = container["state"];
+            if(containerStateValue === "exited") {
+              containerStateValue = "stopped";
+            }
+
             const name = document.createElement("div");
             name.classList.add("name");
             name.innerText = appNameValue;
@@ -201,21 +173,21 @@
 
             const state = document.createElement("div");
             state.classList.add("state");
-            if (container["state"] === "running") {
+            if (containerStateValue === "running") {
               state.classList.add("green");
-            } else if (container["state"] === "stopped") {
+            } else if (containerStateValue === "stopped") {
               state.classList.add("orange");
             } else {
               state.classList.add("red");
             }
-            state.innerText = container["state"];
+            state.innerText = containerStateValue;
             containerDOM.appendChild(state);
 
             const actions = document.createElement("div");
             actions.classList.add("actions");
 
             if (appUseridValue !== "system") {
-              if (container["state"] === "running") {
+              if (containerStateValue === "running") {
 
                 const killButton = document.createElement("div");
                 killButton.innerText = "Kill";
@@ -229,7 +201,7 @@
                 migrateButton.classList.add("blue");
                 actions.appendChild(migrateButton);
 
-              } else if (container["state"] === "stopped") {
+              } else if (containerStateValue === "stopped") {
 
                 const runButton = document.createElement("div");
                 runButton.innerText = "Run";
