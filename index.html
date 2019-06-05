@@ -62,7 +62,6 @@
 
     let selectedNode = null;
 
-
     function redrawSidebar(nodes) {
       const sidebar = document.getElementById("sidebar");
       sidebar.innerHTML = "";
@@ -71,6 +70,16 @@
         const nodeNameValue = node["node"];
         const cpuLoadValue = Math.floor(node["metrics"]["cpuLoad"]["currentload"]);
         const ramLoadValue = Math.floor(node["metrics"]["ram"]["used"] / node["metrics"]["ram"]["total"] * 100);
+        let runningContainersValue = 0;
+        let stoppedContainersValue = 0;
+
+        for(const container of node["metrics"]["dockerContainers"]){
+          if(container.state === "running"){
+            runningContainersValue++;
+          } else {
+            stoppedContainersValue++;
+          }
+        }
 
         if(!selectedNode) selectedNode = nodeNameValue;
 
@@ -85,7 +94,7 @@
 
         const nodeDescription = document.createElement("div");
         nodeDescription.classList.add("description");
-        nodeDescription.innerText = "0 running, 0 stopped";
+        nodeDescription.innerText = `${runningContainersValue} running, ${stoppedContainersValue} stopped`;
         nodeDOM.appendChild(nodeDescription);
 
         const nodeCpuLoader = document.createElement("div");
@@ -138,6 +147,8 @@
     }
 
     function redrawTable(nodes) {
+
+
 
     }
 
