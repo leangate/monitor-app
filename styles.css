@@ -168,12 +168,20 @@ body {
   margin-left: 40px;
 }
 
+.content>.containers>.item.system>.name, .content>.containers>.item.system>.user {
+  opacity:.5;
+}
+
 .content>.containers>.item>.state.green {
   color: rgb(50,205,65);
 }
 
 .content>.containers>.item>.state.orange {
   color: rgb(255,159,10);
+}
+
+.content>.containers>.item.system>.state {
+  color: gray;
 }
 
 .content>.containers>.item>.actions>.button {

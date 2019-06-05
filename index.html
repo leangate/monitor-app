@@ -214,29 +214,30 @@
             const actions = document.createElement("div");
             actions.classList.add("actions");
 
-            if (container["state"] === "running") {
+            if (appUseridValue !== "system") {
+              if (container["state"] === "running") {
 
-              const killButton = document.createElement("div");
-              killButton.innerText = "Kill";
-              killButton.classList.add("button");
-              killButton.classList.add("red");
-              actions.appendChild(killButton);
+                const killButton = document.createElement("div");
+                killButton.innerText = "Kill";
+                killButton.classList.add("button");
+                killButton.classList.add("red");
+                actions.appendChild(killButton);
 
-              const migrateButton = document.createElement("div");
-              migrateButton.innerText = "Migrate";
-              migrateButton.classList.add("button");
-              migrateButton.classList.add("blue");
-              actions.appendChild(migrateButton);
+                const migrateButton = document.createElement("div");
+                migrateButton.innerText = "Migrate";
+                migrateButton.classList.add("button");
+                migrateButton.classList.add("blue");
+                actions.appendChild(migrateButton);
 
-            } else if (container["state"] === "stopped") {
+              } else if (container["state"] === "stopped") {
 
+                const runButton = document.createElement("div");
+                runButton.innerText = "Run";
+                runButton.classList.add("button");
+                runButton.classList.add("green");
+                actions.appendChild(runButton);
 
-              const runButton = document.createElement("div");
-              runButton.innerText = "Run";
-              runButton.classList.add("button");
-              runButton.classList.add("green");
-              actions.appendChild(runButton);
-
+              }
             }
 
             containerDOM.appendChild(actions);
