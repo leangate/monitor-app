@@ -61,7 +61,7 @@
   <script>
     function redrawSidebar(nodes) {
       const sidebar = document.getElementById("sidebar");
-      sidebar.inninnerHTML = "";
+      sidebar.innerHTML = "";
       for (const node of nodes) {
 
         const nodeNameValue = node["node"];
@@ -99,7 +99,7 @@
         nodeCpuLoader.appendChild(nodeCpuLoaderBar);
         const nodeCpuLoaderPercentage = document.createElement("div");
         nodeCpuLoaderPercentage.classList.add("percentage");
-        nodeCpuLoaderPercentage.inninnerText = `${cpuLoadValue}% CPU`
+        nodeCpuLoaderPercentage.innerText = `${cpuLoadValue}% CPU`
         nodeCpuLoader.appendChild(nodeCpuLoaderPercentage);
         nodeDOM.appendChild(nodeCpuLoader);
 
@@ -121,7 +121,7 @@
         nodeRamLoader.appendChild(nodeRamLoaderBar);
         const nodeRamLoaderPercentage = document.createElement("div");
         nodeRamLoaderPercentage.classList.add("percentage");
-        nodeRamLoaderPercentage.inninnerText = `${ramLoadValue}% RAM`
+        nodeRamLoaderPercentage.innerText = `${ramLoadValue}% RAM`
         nodeRamLoader.appendChild(nodeRamLoaderPercentage);
         nodeDOM.appendChild(nodeRamLoader);
 
