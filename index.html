@@ -108,7 +108,18 @@
   </div>
 
   <script>
-    window.parent.postMessage('Hello Parent Frame!', '*');
+
+    window.addEventListener('message', (event => {
+      console.log(event);
+    }), false);
+
+    setInterval(function() {
+      window.parent.postMessage({
+        "action": "apiCall",
+        "endpoint": "system/getClusterMetrics"
+      }, '*');
+    }, 1000);
+
   </script>
 
 </body>
