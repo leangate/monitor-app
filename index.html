@@ -191,7 +191,7 @@
 
     function switchNode(dom, node) {
       selectedNode = node;
-      for (const elementDOM of sidebar.getElegetElementsByClassName("element")) {
+      for (const elementDOM of sidebar.getElementsByClassName("element")) {
         elementDOM.classList.remove("selected");
       }
       dom.classList.add("selected");
