@@ -18,16 +18,21 @@ body {
 .sidebar>.element {
   display: block;
   width: 80%;
-  height: 90px;
+  height: 100px;
   margin: 20px 10% 0 10%;
   padding: 0;
   background: #ffffff96;
   border-radius: 10px;
 }
 
+.sidebar>.element.selected {
+  background: #007aff;
+  color:#fff;
+}
+
 .sidebar>.element>.name {
   font-size: 18px;
-  padding: 10px 0 3px 15px;
+  padding: 15px 0 3px 15px;
 }
 
 .sidebar>.element>.description {
@@ -38,8 +43,8 @@ body {
 
 .sidebar>.element>.loader {
   width: 84%;
-  padding: 0px 8% 3px 8%;
-  height: 16px;
+  padding: 0px 8%;
+  height: 11px;
 }
 
 .sidebar>.element>.loader>.bar {
@@ -48,6 +53,10 @@ body {
   display: inline-block;
   border-radius: 10px;
   background: #efefef;
+}
+
+.sidebar>.element.selected>.loader>.bar {
+  background: #efefef33;
 }
 
 .sidebar>.element>.loader>.bar>.fill {
@@ -68,11 +77,16 @@ body {
   background: green;
 }
 
+.sidebar>.element.selected>.loader>.bar.green>.fill {
+  background: #fff;
+}
+
 .sidebar>.element>.loader>.percentage {
   display: inline-block;
   font-size: 8px;
   width: 27%;
   text-align: right;
+  opacity: .7;
 }
 
 .content {
