@@ -216,7 +216,26 @@
 
             if (container["state"] === "running") {
 
+              const killButton = document.createElement("div");
+              killButton.innerText = "Kill";
+              killButton.classList.add("button");
+              killButton.classList.add("red");
+              actions.appendChild(killButton);
+
+              const migrateButton = document.createElement("div");
+              migrateButton.innerText = "Migrate";
+              migrateButton.classList.add("button");
+              migrateButton.classList.add("blue");
+              actions.appendChild(migrateButton);
+
             } else if (container["state"] === "stopped") {
+
+
+              const runButton = document.createElement("div");
+              runButton.innerText = "Run";
+              runButton.classList.add("button");
+              runButton.classList.add("green");
+              actions.appendChild(runButton);
 
             }
 
