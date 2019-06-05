@@ -181,7 +181,13 @@
             const containerDOM = document.createElement("div");
             containerDOM.classList.add("item");
 
-            const [appNameValue, appUseridValue] = container["name"].split(".");
+            let [appUseridValue, appNameValue] = container["name"].split(".");
+
+            if (appUseridValue === "leangate") {
+              containerDOM.classList.add("system");
+              appUseridValue = "system";
+              appNameValue = "system";
+            }
 
             const name = document.createElement("div");
             name.classList.add("name");
@@ -209,7 +215,7 @@
             actions.classList.add("actions");
 
             if (container["state"] === "running") {
-              
+
             } else if (container["state"] === "stopped") {
 
             }
