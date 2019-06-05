@@ -15,14 +15,31 @@ body {
   background: rgb(242, 242, 242);
 }
 
-.sidebar > .element {
+.sidebar>.element {
   display: block;
   width: 80%;
-  height: 200px;
+  height: 90px;
   margin: 20px 10% 0 10%;
   padding: 0;
-  background: #fff;
+  background: #ffffff96;
   border-radius: 10px;
+}
+
+.sidebar>.element>.name {
+  font-size: 18px;
+  padding: 10px 0 3px 15px;
+}
+
+.sidebar>.element>.description {
+  opacity: .5;
+  padding: 0 0 5px 15px;
+  font-size: 11px;
+}
+
+.sidebar>.element>.loader {
+  width: 84%;
+  padding: 0px 8% 3px 8%;
+  height: 16px;
 }
 
 .content {
