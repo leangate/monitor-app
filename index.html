@@ -174,7 +174,7 @@
           nodeName.innerHTML = node["node"];
           osName.innerHTML = `${node["metrics"]["osInfo"]["distro"]} ${node["metrics"]["osInfo"]["release"]}`;
           cpuModel.innerHTML = `${node["metrics"]["cpuInfo"]["manufacturer"]} ${node["metrics"]["cpuInfo"]["brand"]}`;
-          cpuCores.innerHTML = `${node["metrics"]["cpuInfo"]["cores"]} Cores x ${node["metrics"]["cpuInfo"]["speed"]}Hz`;
+          cpuCores.innerHTML = `${node["metrics"]["cpuInfo"]["cores"]} Core${node["metrics"]["cpuInfo"]["cores"]===1?"":"s"} x ${node["metrics"]["cpuInfo"]["speed"]}Hz`;
           nodeUptime.innerHTML = `Uptime ${node["metrics"]["time"]["uptime"]} seconds`;
 
           // TODO: fill containers
