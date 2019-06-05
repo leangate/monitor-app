@@ -12,6 +12,7 @@ body {
   left: 0;
   bottom: 0;
   width: 250px;
+  background: rgb(237, 237, 237);
 }
 
 .content {
@@ -20,4 +21,5 @@ body {
   right: 0;
   top: 0;
   bottom: 0;
+  background: rgb(250, 250, 250);
 }
