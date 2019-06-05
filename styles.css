@@ -155,3 +155,7 @@ body {
 .content>.containers>.item>div {
   display: inline-block;
 }
+
+.content>.containers>.item>.actions>.button {
+  display: inline-block;
+}
