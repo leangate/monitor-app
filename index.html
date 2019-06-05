@@ -13,13 +13,13 @@
   <div class="sidebar" id="sidebar"></div>
   <div class="content">
     <div class="headline" id="headline">
-      <div class="updated" id="dataUpdated">updated 2 seconds ago</div>
-      <div class="name" id="nodeName">leangate-node-1</div>
+      <div class="updated" id="dataUpdated">-</div>
+      <div class="name" id="nodeName">-</div>
       <div class="info">
-        <div class="block os" id="osName">Debian GNU/Linux 9</div>
-        <div class="block cpuModel" id="cpuModel">Intel® Core™ i7-6700HQ</div>
-        <div class="block cpuCores" id="cpuCores">2 Cores x 2.60Hz</div>
-        <div class="block uptime" id="nodeUptime">Uptime 20 minutes</div>
+        <div class="block os" id="osName">-</div>
+        <div class="block cpuModel" id="cpuModel">-</div>
+        <div class="block cpuCores" id="cpuCores">-</div>
+        <div class="block uptime" id="nodeUptime">-</div>
       </div>
     </div>
     <div class="containers" id="containers">
@@ -167,7 +167,7 @@
       for (const node of nodes) {
         if (node["node"] === selectedNode) {
 
-          const lastUpdated = Math.floor(new Date().getTime() - node["updated"] / 1000);
+          const lastUpdated = Math.floor((new Date().getTime() - node["updated"]) / 1000);
 
           containers.innerHTML = "";
           dataUpdated.innerHTML = `updated ${lastUpdated} second${lastUpdated===1?"":"s"} ago`;
