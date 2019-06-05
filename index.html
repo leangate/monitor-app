@@ -180,6 +180,30 @@
           for (const container of node["metrics"]["dockerContainers"]) {
             const containerDOM = document.createElement("div");
 
+            const [appNameValue, appUseridValue] = container["name"].split(".");
+
+            const name = document.createElement("div");
+            name.classList.add("name");
+            name.inninnerText = appNameValue;
+            containerDOM.appendChild(name);
+
+            const user = document.createElement("div");
+            user.classList.add("user");
+            user.inninnerText = appUseridValue;
+            containerDOM.appendChild(user);
+
+            const state = document.createElement("div");
+            state.classList.add("state");
+            if (container["state"] === "running") {
+              state.classList.add("green");
+            } else if (container["state"] === "stopped") {
+              state.classList.add("orange");
+            } else {
+              state.classList.add("red");
+            }
+            state.inninnerText = container["state"];
+            containerDOM.appendChild(state);
+
             containers.appendChild(containerDOM);
           }
 
