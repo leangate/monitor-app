@@ -152,7 +152,7 @@ body {
   border-bottom: 1px solid #00000021;
 }
 
-.content>.containers:nth-child(odd) {
+.content>.containers>.item:nth-child(odd) {
   background:#000;
 }
 
