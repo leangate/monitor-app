@@ -42,6 +42,39 @@ body {
   height: 16px;
 }
 
+.sidebar>.element>.loader>.bar {
+  width: 70%;
+  height: 6px;
+  display: inline-block;
+  border-radius: 10px;
+  background: #efefef;
+}
+
+.sidebar>.element>.loader>.bar>.fill {
+  height: 100%;
+  background: black;
+  border-radius: 10px;
+}
+
+.sidebar>.element>.loader>.bar.orange>.fill {
+  background: orange;
+}
+
+.sidebar>.element>.loader>.bar.red>.fill {
+  background: red;
+}
+
+.sidebar>.element>.loader>.bar.green>.fill {
+  background: green;
+}
+
+.sidebar>.element>.loader>.percentage {
+  display: inline-block;
+  font-size: 8px;
+  width: 27%;
+  text-align: right;
+}
+
 .content {
   position: absolute;
   left: 250px;
