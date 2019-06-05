@@ -59,6 +59,10 @@
   </div>
 
   <script>
+
+    let selectedNode = null;
+
+
     function redrawSidebar(nodes) {
       const sidebar = document.getElementById("sidebar");
       sidebar.innerHTML = "";
@@ -68,8 +72,11 @@
         const cpuLoadValue = Math.floor(node["metrics"]["cpuLoad"]["currentload"]);
         const ramLoadValue = Math.floor(node["metrics"]["ram"]["used"] / node["metrics"]["ram"]["total"] * 100);
 
+        if(!selectedNode) selectedNode = nodeNameValue;
+
         const nodeDOM = document.createElement("div");
         nodeDOM.classList.add("element");
+        if(nodeNameValue === selectedNode) nodeDOM.classList.add("selected");
 
         const nodeName = document.createElement("div");
         nodeName.classList.add("name");
