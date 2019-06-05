@@ -149,11 +149,10 @@ body {
 .content>.containers>.item {
   display: block;
   padding: 10px 0;
-  border-bottom: 1px solid #00000021;
 }
 
-.content>.containers>.item:nth-child(odd) {
-  background:#000;
+.content>.containers>.item:nth-child(even) {
+    background: #00000005;
 }
 
 .content>.containers>.item.title {
