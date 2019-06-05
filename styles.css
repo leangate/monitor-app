@@ -148,7 +148,7 @@ body {
 
 .content>.containers>.item {
   display: block;
-  padding: 15px 0;
+  padding: 10px 0;
   border-bottom: 1px solid #00000021;
 }
 
@@ -170,11 +170,11 @@ body {
 }
 
 .content>.containers>.item>.state.green {
-  color: #00a50d;
+  color: rgb(50,205,65);
 }
 
 .content>.containers>.item>.state.orange {
-  color: orange;
+  color: rgb(255,159,10);
 }
 
 .content>.containers>.item>.actions>.button {
@@ -182,19 +182,19 @@ body {
   padding: 7px 14px;
   background: #f3f3f3;
   border: 1px solid #cecece;
-  border-radius: 7px;
+  border-radius: 15px;
   margin-right: 8px;
 }
 
 .content>.containers>.item>.actions>.button.green {
-  background: #00a50d;
-  border: 1px solid #02750b;
-  color: #fff;
+  background: rgb(50,205,65);
+  border: 1px solid rgb(50,205,65);
+  color: #000;
 }
 
 .content>.containers>.item>.actions>.button.red {
-  background: #ff4141;
-  border: 1px solid #bf0000;
+  background: rgb(255,59,48);
+  border: 1px solid rgb(255,59,48);
   color: #fff;
 }
 
