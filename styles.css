@@ -154,11 +154,11 @@ body {
 
 .content>.containers>.item>div {
   display: inline-block;
+  width: 20%;
 }
 
 .content>.containers>.item>.name {
   margin-left: 40px;
-  width: 20%;
 }
 
 .content>.containers>.item>.actions>.button {
