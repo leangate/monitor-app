@@ -185,12 +185,12 @@
 
             const name = document.createElement("div");
             name.classList.add("name");
-            name.inninnerText = appNameValue;
+            name.innerText = appNameValue;
             containerDOM.appendChild(name);
 
             const user = document.createElement("div");
             user.classList.add("user");
-            user.inninnerText = appUseridValue;
+            user.innerText = appUseridValue;
             containerDOM.appendChild(user);
 
             const state = document.createElement("div");
@@ -202,7 +202,7 @@
             } else {
               state.classList.add("red");
             }
-            state.inninnerText = container["state"];
+            state.innerText = container["state"];
             containerDOM.appendChild(state);
 
             containers.appendChild(containerDOM);
