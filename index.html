@@ -16,7 +16,7 @@
       <div class="updated" id="dataUpdated"></div>
       <div class="name" id="nodeName"></div>
       <div class="info">
-        <div class="block os" id="osName">-</div>
+        <div class="block os" id="osName"></div>
         <div class="block cpuModel" id="cpuModel"></div>
         <div class="block cpuCores" id="cpuCores"></div>
         <div class="block uptime" id="nodeUptime"></div>
@@ -204,6 +204,17 @@
             }
             state.innerText = container["state"];
             containerDOM.appendChild(state);
+
+            const actions = document.createElement("div");
+            actions.classList.add("actions");
+
+            if (container["state"] === "running") {
+              
+            } else if (container["state"] === "stopped") {
+
+            }
+
+            containerDOM.appendChild(actions);
 
             containers.appendChild(containerDOM);
           }
