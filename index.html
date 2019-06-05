@@ -10,7 +10,7 @@
 
 <body>
 
-  <div class="sidebar">
+  <div class="sidebar" id="sidebar">
     <div class="element selected">
       <div class="name">leangate-node-1</div>
       <div class="description">10 running, 15 stopped</div>
@@ -108,9 +108,85 @@
   </div>
 
   <script>
+    function redrawSidebar(nodes) {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.inninnerHTML = "";
+      for (const node of nodes) {
+
+        const nodeNameValue = node["node"];
+        const cpuLoadValue = Math.floor(node["metrics"]["cpuLoad"]["currentload"]);
+        const ramLoadValue = Math.floor(node["metrics"]["ram"]["used"] / node["metrics"]["ram"]["total"] * 100);
+
+        const nodeDOM = document.createElement("div");
+        nodeDOM.classList.add("element");
+
+        const nodeName = document.createElement("div");
+        nodeName.classList.add("name");
+        nodeName.innerText = nodeNameValue;
+        nodeDOM.appendChild(nodeName);
+
+        const nodeDescription = document.createElement("div");
+        nodeDescription.classList.add("description");
+        nodeDescription.innerText = "0 running, 0 stopped";
+        nodeDOM.appendChild(nodeDescription);
+
+        const nodeCpuLoader = document.createElement("div");
+        nodeCpuLoader.classList.add("loader");
+        const nodeCpuLoaderBar = document.createElement("div");
+        nodeCpuLoaderBar.classList.add("bar");
+        const nodeCpuLoaderFill = document.createElement("div");
+        nodeCpuLoaderFill.classList.add("fill");
+        if (cpuLoadValue < 60) {
+          nodeCpuLoaderBar.classList.add("green");
+        } else if (cpuLoadValue < 90) {
+          nodeCpuLoaderBar.classList.add("orange");
+        } else {
+          nodeCpuLoaderBar.classList.add("red");
+        }
+        nodeCpuLoaderFill.style.width = `${cpuLoadValue}%`
+        nodeCpuLoaderBar.appendChild(nodeCpuLoaderFill);
+        nodeCpuLoader.appendChild(nodeCpuLoaderBar);
+        const nodeCpuLoaderPercentage = document.createElement("div");
+        nodeCpuLoaderPercentage.classList.add("percentage");
+        nodeCpuLoaderPercentage.inninnerText = `${cpuLoadValue}% CPU`
+        nodeCpuLoader.appendChild(nodeCpuLoaderPercentage);
+        nodeDOM.appendChild(nodeCpuLoader);
+
+        const nodeRamLoader = document.createElement("div");
+        nodeRamLoader.classList.add("loader");
+        const nodeRamLoaderBar = document.createElement("div");
+        nodeRamLoaderBar.classList.add("bar");
+        const nodeRamLoaderFill = document.createElement("div");
+        nodeRamLoaderFill.classList.add("fill");
+        if (ramLoadValue < 60) {
+          nodeRamLoaderBar.classList.add("green");
+        } else if (ramLoadValue < 90) {
+          nodeRamLoaderBar.classList.add("orange");
+        } else {
+          nodeRamLoaderBar.classList.add("red");
+        }
+        nodeRamLoaderFill.style.width = `${ramLoadValue}%`
+        nodeRamLoaderBar.appendChild(nodeRamLoaderFill);
+        nodeRamLoader.appendChild(nodeRamLoaderBar);
+        const nodeRamLoaderPercentage = document.createElement("div");
+        nodeRamLoaderPercentage.classList.add("percentage");
+        nodeRamLoaderPercentage.inninnerText = `${ramLoadValue}% RAM`
+        nodeRamLoader.appendChild(nodeRamLoaderPercentage);
+        nodeDOM.appendChild(nodeRamLoader);
+
+        sidebar.appendChild(nodeDOM);
+
+      }
+    }
+
+    function redrawTable(nodes) {
+
+    }
 
     window.addEventListener('message', (event => {
-      console.log(event);
+      console.log("System answered!", event);
+      redrawSidebar(event.data.results);
+      redrawTable(event.data.results);
     }), false);
 
     setInterval(function() {
@@ -119,7 +195,6 @@
         "endpoint": "system/getClusterMetrics"
       }, '*');
     }, 1000);
-
   </script>
 
 </body>
