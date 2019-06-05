@@ -107,6 +107,13 @@ body {
   height: 150px;
 }
 
+.content>.headline>.updated {
+  position:absolute;
+  top:20px;
+  right:20px;
+  opacity:.5;
+}
+
 .content>.headline>.name {
   display: block;
   font-size: 32px;
