@@ -162,14 +162,13 @@
 
     function redrawTable(nodes) {
 
-      containers.innerHTML = "";
+      containers.innerHTML = "<div class=\"item title\"><div class=\"name\">Name</div><div class=\"user\">User</div><div class=\"state\">State</div><div class=\"actions\">Actions</div></div>";
 
       for (const node of nodes) {
         if (node["node"] === selectedNode) {
 
           const lastUpdated = Math.floor((new Date().getTime() - node["updated"]) / 1000);
 
-          containers.innerHTML = "";
           dataUpdated.innerHTML = `updated ${lastUpdated} second${lastUpdated===1?"":"s"} ago`;
           nodeName.innerHTML = node["node"];
           osName.innerHTML = `${node["metrics"]["osInfo"]["distro"]} ${node["metrics"]["osInfo"]["release"]}`;
