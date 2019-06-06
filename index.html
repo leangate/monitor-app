@@ -137,7 +137,7 @@
           let lastUpdated = Math.floor((new Date().getTime() - node["updated"]) / 1000);
           if(lastUpdated < 0) lastUpdated = 0;
 
-          dataUpdated.innerHTML = `updated ${lastUpdated} second${lastUpdated===1?"":"s"} ago`;
+          dataUpdated.innerHTML = lastUpdated === 0 ? "updated right now" : `updated ${lastUpdated} second${lastUpdated===1?"":"s"} ago`;
           nodeName.innerHTML = node["node"];
           osName.innerHTML = `${node["metrics"]["osInfo"]["distro"]} ${node["metrics"]["osInfo"]["release"]}`;
           cpuModel.innerHTML = `${node["metrics"]["cpuInfo"]["manufacturer"]} ${node["metrics"]["cpuInfo"]["brand"]}`;
