@@ -217,17 +217,35 @@
                 const runButton = document.createElement("div");
                 runButton.innerText = "Run";
                 runButton.classList.add("button");
-                runButton.classList.add("green");
-                runButton.onclick((event)=>{
-                  console.log(`Starting "${appNameValue}" app...`);
-                  window.parent.postMessage({
-                    "action": "apiCall",
-                    "endpoint": "apps/startApp",
-                    "parameters" : {
-                      id : appNameValue
+
+                // may be app already running elsewhere?
+                let alreadyRunning = false;
+                for (const node2 of nodes) {
+                  for (const container2 of node2["metrics"]["dockerContainers"]) {
+                    if(container2.name === container.name && container2.state === "running") {
+                      alreadyRunning = true;
+                      break;
                     }
-                  }, '*');
-                });
+                  }
+                  if(alreadyRunning) break;
+                }
+
+                if(alreadyRunning) {
+                  runButton.classList.add("disabled");
+                } else {
+                  runButton.classList.add("green");
+                  runButton.onclick((event)=>{
+                    console.log(`Starting "${appNameValue}" app...`);
+                    window.parent.postMessage({
+                      "action": "apiCall",
+                      "endpoint": "apps/startApp",
+                      "parameters" : {
+                        id : appNameValue
+                      }
+                    }, '*');
+                  });
+                }
+
                 actions.appendChild(runButton);
 
               }
