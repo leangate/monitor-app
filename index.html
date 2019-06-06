@@ -194,6 +194,16 @@
                 killButton.innerText = "Kill";
                 killButton.classList.add("button");
                 killButton.classList.add("red");
+                killButton.onclick((event)=>{
+                  console.log(`Killing "${appNameValue}" app...``);
+                  window.parent.postMessage({
+                    "action": "apiCall",
+                    "endpoint": "apps/stopApp",
+                    "parameters" : {
+                      id : appNameValue
+                    }
+                  }, '*');
+                });
                 actions.appendChild(killButton);
 
                 const migrateButton = document.createElement("div");
