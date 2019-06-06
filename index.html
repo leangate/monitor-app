@@ -134,7 +134,8 @@
       for (const node of nodes) {
         if (node["node"] === selectedNode) {
 
-          const lastUpdated = Math.floor((new Date().getTime() - node["updated"]) / 1000);
+          let lastUpdated = Math.floor((new Date().getTime() - node["updated"]) / 1000);
+          if(lastUpdated < 0) lastUpdated = 0;
 
           dataUpdated.innerHTML = `updated ${lastUpdated} second${lastUpdated===1?"":"s"} ago`;
           nodeName.innerHTML = node["node"];
