@@ -238,7 +238,7 @@
                     console.log(`Starting "${appNameValue}" app...`);
                     window.parent.postMessage({
                       "action": "apiCall",
-                      "endpoint": "apps/startApp",
+                      "endpoint": "apps/runApp",
                       "parameters" : {
                         id : appNameValue
                       }
