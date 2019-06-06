@@ -194,7 +194,7 @@
                 killButton.innerText = "Kill";
                 killButton.classList.add("button");
                 killButton.classList.add("red");
-                killButton.onclick((event)=>{
+                killButton.onclick = (event)=>{
                   console.log(`Killing "${appNameValue}" app...`);
                   window.parent.postMessage({
                     "action": "apiCall",
@@ -203,7 +203,7 @@
                       id : appNameValue
                     }
                   }, '*');
-                });
+                };
                 actions.appendChild(killButton);
 
                 // const migrateButton = document.createElement("div");
@@ -234,7 +234,7 @@
                   runButton.classList.add("disabled");
                 } else {
                   runButton.classList.add("green");
-                  runButton.onclick((event)=>{
+                  runButton.onclick = (event)=>{
                     console.log(`Starting "${appNameValue}" app...`);
                     window.parent.postMessage({
                       "action": "apiCall",
@@ -243,7 +243,7 @@
                         id : appNameValue
                       }
                     }, '*');
-                  });
+                  };
                 }
 
                 actions.appendChild(runButton);
