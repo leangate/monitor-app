@@ -195,7 +195,7 @@
                 killButton.classList.add("button");
                 killButton.classList.add("red");
                 killButton.onclick((event)=>{
-                  console.log(`Killing "${appNameValue}" app...``);
+                  console.log(`Killing "${appNameValue}" app...`);
                   window.parent.postMessage({
                     "action": "apiCall",
                     "endpoint": "apps/stopApp",
@@ -218,6 +218,16 @@
                 runButton.innerText = "Run";
                 runButton.classList.add("button");
                 runButton.classList.add("green");
+                runButton.onclick((event)=>{
+                  console.log(`Starting "${appNameValue}" app...`);
+                  window.parent.postMessage({
+                    "action": "apiCall",
+                    "endpoint": "apps/startApp",
+                    "parameters" : {
+                      id : appNameValue
+                    }
+                  }, '*');
+                });
                 actions.appendChild(runButton);
 
               }
